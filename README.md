@@ -16,4 +16,4 @@ database. In each of the tables, create two attributes, ID(Datatype : Varchar, L
 
 4)Download strawberry perl, go to C:\Strawberry\c\bin and copy libmysql__.dll. Paste it in C:\xampp\perl\vendor\lib\auto\DBD\mysql
 
-5)To play the game, open a we browser, type in localhost/index.html
+5)To play the game, open a web browser, type in localhost/index.html
