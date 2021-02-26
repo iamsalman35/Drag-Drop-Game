@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DND - Outro</title>
+    <link rel = "icon" href =  "images/Logo.png" type = "image/x-icon"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js"></script>
+    <style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+	
+}
+
+body{
+    background-image: url(images/Outro.jpg);
+    background-repeat: no-repeat;
+    background-size: 1366px 780px;
+}
+
+.navbar {
+    background: transparent;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar__container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+#navbar__logo {
+    background-color: #ff8177;
+    background-image: linear-gradient(to top, #ff0844 0%, #f3c323 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+.fa-align-justify {
+    margin-left: 16rem;
+}
+
+.navbar__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+}
+
+.navbar__item {
+    height: 80px;
+}
+
+.navbar__links {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+}
+
+.navbar__btn {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    text-decoration: none;
+    padding: 10px 20px;
+    height: 100%;
+    width: 100%;
+}
+
+.button_END {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    text-decoration: none;
+    color: #fff;
+    background-image: linear-gradient(to top, #df5c1f 100%, #df5c1f 100%);
+    padding: 14px 32px;
+    top: -15px;
+    height: 80%;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    margin-top: 2rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.button_END:hover {
+    background: #f50404;
+    transition: all 0.35s ease;
+}
+
+.main h1 {
+    position:relative; 
+    top:20px;
+    font-size: 2rem;
+    background-image: linear-gradient(to top, #fff 0%, #fff 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+.main__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-self: center;
+    margin: 0 auto;
+    height: 90vh;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 50px;
+}
+
+.row {
+    display: flex;
+  }
+  
+.column1 {
+    flex: 33.33%;
+    padding: 5px;
+    cursor: pointer;
+    height: auto;
+    perspective: 250px;
+}
+    
+.column1 img {
+      transition: 100ms;
+      box-shadow: 0px 0px 0px rgba(0,0,0,0);
+    }
+    
+.column1 img:hover {
+      transform: translate3d(10px,0px,20px);  
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.8);
+      border: 5px solid rgb(0, 128, 0);
+      }
+
+.column2 {
+    flex: 33.33%;
+    padding: 5px;
+    cursor: pointer;
+    margin-left: 12rem;
+    margin-right: 12rem;
+    height: auto;
+    perspective: 250px;
+}
+    
+.column2 img {
+      transition: 100ms;
+      box-shadow: 0px 0px 0px rgba(0,0,0,0);
+    }
+    
+.column2 img:hover {
+      transform: translate3d(10px,0px,20px);  
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.8);
+      border: 5px solid rgb(0, 128, 0);
+      }
+
+.column3 {
+    flex: 33.33%;
+    padding: 5px;
+    cursor: pointer;
+    height: auto;
+    perspective: 250px;
+}
+    
+.column3 img {
+      transition: 100ms;
+      box-shadow: 0px 0px 0px rgba(0,0,0,0);
+    }
+    
+.column3 img:hover {
+      transform: translate3d(10px,0px,20px);  
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.8);
+      border: 5px solid rgb(0, 128, 0);
+      }
+    </style>
+</head>
+<body>
+    <!-- navbar Section -->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="index.html" id="navbar__logo"><img src="images/Logo.png"/>Ackermann™</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span> <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__btn__exit">
+                    <a href="end.html" class="button_END">EXIT</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Hero Section-->
+    <div class="main">
+        <h1>Step 4 : Choose an Outro </h1>
+        <div class="main__container">
+            <div class="row">
+                <div class="column1">
+                    <a href="franklin_final.html"><img src="images/x2.jpg"></a>
+                </div>
+                <div class="column2">
+                  <a href="michael_final.html"><img src="images/x1.jpg"></a>
+                </div>
+                <div class="column3">
+                    <a href="trevor_final.html"><img src="images/x3.jpg"></a>
+                </div>
+              </div>
+        </div>
+    </div>
+</body>
+</html>

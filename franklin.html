@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DND - Franklin Clinton</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+    <link rel = "icon" href =  "images/Logo.png" type = "image/x-icon"> 
+    <style>
+	* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+	}
+
+	body, html{
+    background-image: url(images/Background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 700px;
+}
+
+.navbar {
+    background: transparent;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar__container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+#navbar__logo {
+    background-color: #ff8177;
+    background-image: linear-gradient(to top, #ff0844 0%, #f3c323 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+.navbar__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+}
+
+.navbar__item {
+    height: 80px;
+}
+
+.navbar__links {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+}
+
+.navbar__btn {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    text-decoration: none;
+    padding: 10px 20px;
+    height: 100%;
+    width: 80%;
+
+}
+
+.button_END {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    margin-left: 10px;
+    left: 80px;
+    text-decoration: none;
+    color: #fff;
+    background-image: linear-gradient(to top, #df5c1f 100%, #df5c1f 100%);
+    padding: 14px 32px;
+    top: -15px;
+    height: 80%;
+    width: 80%;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    margin-top: 2rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.button_END:hover {
+    background: #f50404;
+    transition: all 0.35s ease;
+}
+
+h1 {
+    position:relative;
+    top:25px;
+    margin-left: 80px;
+    font-size: 2rem;
+    background-image: linear-gradient(to top, #fff 0%, #fff 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+.secondary_heading
+{
+    position:relative;
+    top:25px;
+    margin-top: 5rem;
+    margin-left: 80px;
+    font-size: 2rem;
+    background-image: linear-gradient(to top, #fff 0%, #fff 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+.main__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 70px;
+    height: 60vh;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 50px;
+}
+
+[draggable=true] {
+    cursor: move;
+  }
+
+.main__btn {
+    font-size: 1rem;
+    background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 2rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.35s ease-in-out;
+    outline: none;
+}
+
+.pet__btn {
+    font-size: 1rem;
+    background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 2rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.35s ease-in-out;
+    outline: none;
+}
+
+.form {
+	font-size: 1rem;
+    top: 7px;
+    margin-left: 40px;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.35s ease-in-out;
+    outline: none;
+}
+
+.Go {
+	font-size: 1rem;
+    top: 0px;
+    left: -240px;
+    margin-left: 240px;
+    background-image: linear-gradient(to top, #18eb05 100%, #e9e8a2 100%);
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 1rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.35s ease-in-out;
+    outline: none;
+}
+
+.Go:hover {background-color: #3e8e41}
+
+.Go:active {
+  background-color: #18eb05;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.Back {
+   font-size: 1rem;
+    top: 10px;
+    margin-left: 80px;
+    background-image: linear-gradient(to top, #9932CC 0%, #9932CC 100%);
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 2rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.35s ease-in-out;
+    outline: none; 
+}
+
+.Save {
+    font-size: 1rem;
+    top: 10px;
+    margin-left: 1px;
+    background-image: linear-gradient(to top, #f17420 0%, #ee4f10 100%);
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 2rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.35s ease-in-out;
+    outline: none;
+}
+
+.Save:hover {background-color: #f17420}
+
+.Save:active {
+  background-color: #f17420;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.Submit {
+    font-size: 1rem;
+    top: 10px;
+    background-image: linear-gradient(to top, #2d40e9 0%, #104bee 100%);
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 2rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.35s ease-in-out;
+    outline: none;
+}
+
+.Submit:hover {background-color: #2d40e9}
+
+.Submit:active {
+  background-color: #2d40e9;
+  box-shadow: 0 5px #666;
+  transform: translateY(5px);
+}
+
+.Outro {
+    font-size: 1rem;
+    top: 11px;
+    background-image: linear-gradient(to top, #056608  100%, #056608  100%);
+    padding: 15px 32px;
+    left: 2px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 2rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.35s ease-in-out;
+    outline: none;
+}
+
+.Outro:hover {background-color: #056608 }
+
+.Outro:active {
+  background-color: #056608 ;
+  box-shadow: 0 5px #666;
+  transform: translateY(5px);
+}
+
+.main__img--container {
+    text-align: center;
+    position: relative;
+    top: 0;
+    left: 0;
+    padding-bottom: 50px;
+    border: 8px solid rgb(180, 3, 250);
+    border-radius: 2rem;
+}
+
+.droptarget {
+    height: 530px;
+    position: relative;
+    top: -10px;
+    left: 0;
+  }
+
+  .droptarget1 {
+      position: absolute;
+      margin-top: -8.5rem;
+      margin-left: 23rem;
+      transform: rotateX(-4deg);
+      
+    }
+
+  .form{
+    margin-left: 8rem;
+  }
+    </style>
+</head>
+<body>
+    <!-- navbar Section -->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="index.html" id="navbar__logo"><img src="images/Logo.png"/>Ackermann™</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span> <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__btn__exit">
+                    <a href="end.html" class="button_END">EXIT</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Hero Section-->
+    <div class="main">
+        <div class="main__container">
+            <div class="dragtarget">
+                <h1>Step 2 : Choose an Outfit </h1>
+                <button draggable="true" class="main__btn" id="Formal">Formal</button>
+                <button draggable="true" class="main__btn" id="Hoodie">Hoodie</button>
+                <button draggable="true" class="main__btn" id="Tuxedo">Tux</button>
+                <button draggable="true" class="main__btn" id="Workout">Workout</button>
+                <button draggable="true" class="main__btn" id="Camos">Camos</button>
+                <button draggable="true" class="main__btn" id="Golfer">Golfer</button>
+                <button draggable="true" class="main__btn" id="RacerX">RacerX</button>
+                <button draggable="true" class="main__btn" id="3 Piece">3 Piece</button>
+                <button draggable="true" class="main__btn" id="Casual">Casual</button>
+                <button draggable="true" class="main__btn" id="Party">Party</button>
+            
+                <h1 class="secondary_heading">Step 3 : Choose a Pet </h1>
+                <button draggable="true" class="pet__btn" id="Collie">Collie</button>
+                <button draggable="true" class="pet__btn" id="Cat">Cat</button>
+                <button draggable="true" class="pet__btn" id="Husky">Husky</button>
+                <button draggable="true" class="pet__btn" id="Poodle">Poodle</button>
+                <button draggable="true" class="pet__btn" id="Rottweiler">Rottweiler</button>
+            </div>
+            
+                <div class="main__img--container">
+                    <div class="droptarget"><img src="images/Franklin/Main.png" width='408' height = '590' class="fig">
+                        </div>
+                    <div class="droptarget1"><img src="images/Pets/Main.gif"  width='190' height='190' class="pet"></div>
+                </div>
+        </div>
+
+        <form name="f1">
+        <p class = "form" style="color:white;">Add a Design No: <input name="word" type="text">  
+        <input value="Go" type="button" class="Go"></p>
+        <div id="result"></div>
+        </form>
+        <button class="Back" onclick="location.href='play.html'" type="button">
+         Back to Characters</button>
+        <button draggable="false" class="Save" onclick="FinalSaving()">Save</button>
+        <button draggable="false" class="Submit" onclick="PerlSubmit()">Submit</button>
+        <a href="outro.html" class="Outro" style="text-decoration: none;">Next</a>
+    </div>
+<script>
+	const dragtarget = document.querySelectorAll('.main__btn')
+	const fig=document.querySelector('.fig')
+	fig.addEventListener('dragenter',dragEnter)
+	fig.addEventListener('drop',drop)
+	fig.addEventListener('dragleave',dragLeave)
+	fig.addEventListener('dragover',dragOver)
+
+	for (var i =0 ; i< dragtarget.length ; i++)
+	{
+	  dragtarget[i].addEventListener('dragstart',drag_start)
+	  dragtarget[i].addEventListener('dragend',drag_end)
+
+	}
+	var fig_name=''
+
+	function drag_start()
+	{
+	  this.className+=' hold'
+	  fig_name=this.id
+	}
+
+	function drag_end()
+	{
+	 
+	}
+
+	function dragOver(e)
+	{
+	  e.preventDefault()
+	  console.log('over')
+	}
+
+
+	function dragEnter(e)
+	{
+	  e.preventDefault();
+	  this.className+=' hovered'
+	}
+
+	function dragLeave()
+	{
+	  console.log('llll');
+	  this.className='fig'
+	}
+
+	var arr_outfit = [];
+	function drop(ele)
+	{
+		console.log(fig_name+'.png')
+		fig.src='images/Franklin/'+fig_name+'.png';
+		this.className='fig'
+		arr_outfit.push(fig_name);
+	}
+
+</script>
+<script>
+	const dragtarget1 = document.querySelectorAll('.pet__btn')
+	const pet=document.querySelector('.pet')
+	pet.addEventListener('dragenter',dragEnter)
+	pet.addEventListener('drop',drop)
+	pet.addEventListener('dragleave',dragLeave)
+	pet.addEventListener('dragover',dragOver)
+
+	for (var i =0 ; i< dragtarget1.length ; i++)
+	{
+	  dragtarget1[i].addEventListener('dragstart',drag_start)
+	  dragtarget1[i].addEventListener('dragend',drag_end)
+	}
+	var pet_name=''
+
+	function drag_start()
+	{
+	  this.className+=' hold'
+	  pet_name=this.id
+	}
+
+	function drag_end()
+	{
+	 
+	}
+
+	function dragOver(e)
+	{
+	  e.preventDefault()
+	  console.log('over')
+	}
+
+
+	function dragEnter(e)
+	{
+	  e.preventDefault();
+	  this.className+=' hovered'
+	}
+
+	function dragLeave()
+	{
+	  console.log('llll');
+	  this.className='pet'
+	}
+
+	var arr_pet = []
+	function drop(ele)
+	{
+	    const dropTarget = ele.target.closest('.droptarget1');
+	    if (dropTarget) {
+	        console.log(pet_name+'.png')
+	        pet.src='images/Pets/'+pet_name+'.png';
+	        dropTarget.append(pet);
+	        arr_pet.push(pet_name);
+	    }
+	}
+
+	var x;
+	var y;
+	var final = [];
+
+	function FinalSaving()
+	{
+		x = (arr_outfit[arr_outfit.length - 1]);
+        y = (arr_pet[arr_pet.length - 1]);
+        final.push(arr_outfit[arr_outfit.length - 1]);
+        final.push(arr_pet[arr_pet.length - 1]);
+        console.log(x);
+        console.log(y);
+	}
+
+	function getquerystring() {
+                    var form = document.forms['f1'];
+                    var word = form.word.value;
+                    qstr = escape(word);
+                    return qstr;
+}
+
+	function PerlSubmit() {
+				var dd = final;
+				console.log(dd);
+				var design_no = getquerystring();
+                $.ajax({
+                    type: 'POST',
+                    url: 'franklin.cgi',
+                    data: { "r": JSON.stringify({'Character' : [{'design': [design_no], 'itemlist' :dd}]})},
+                    success: function(res) { alert(res); },
+                    error: function() { alert("Did not work"); }
+                });
+
+                final = [];
+}
+</script>
+</body>
+</html>

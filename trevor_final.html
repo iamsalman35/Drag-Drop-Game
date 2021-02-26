@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outro - Trevor Philips</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="outro.css" />
+    <link rel = "icon" href =  "images/Logo.png" type = "image/x-icon"> 
+</head>
+<body>
+        <nav class="navbar">
+        <div class="navbar__container">
+            <a href="index.html" id="navbar__logo"><img src="images/Logo.png"/>Ackermann™</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span> <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__btn__exit">
+                    <a href="end.html" class="button_END">EXIT</a>
+                </li>
+            </ul>
+        </div>
+        </nav>
+
+        <div class="main">
+            <div class="main__container">
+                <div class="split left">
+                        <form name="f1">
+                         <p class="x">Enter Design no: <input name="Design" id="p" method="GET" type="text">  
+                         <input value="Go" type="button" onclick="getResult()" class="Go"></p>
+                         <div id="result"></div>
+                        </form>
+                        <div class="parent">
+                          <img src="images/Trevor-Car.png" class = "image1">
+                          <img src="images/Trevor/Main.png" style="display:none;" class="image2" id="bigpic"/>
+                          <img src="images/Pets/Main.gif" style="display:none;" class="image3" id="petPic"
+                           />
+                        </div>
+                      <div class="centered">
+
+                    </div>
+
+                    <div class="split right">
+                      <div class="centered">
+                        <h2 style=color:white>Trevor Philips</h2>
+                        <b><p style=color:white><br><br>Trevor is a career criminal and former bank robber with a complicated past, who later founded his own company, Trevor Philips Enterprises, operating with drug dealing and weapon smuggling in Blaine County. He is friends with Ron Jakowski and Wade Hebert, who work for his company, as well as the oldest and best friend of Michael, whom he believed to be dead for almost a decade after he faked his death to retire from the criminal life. Trevor is known to have a generally reckless and very aggressive behavior, but he is also very loyal and deeply respects all those close to him.<br><br></p></b>
+                      </div>
+                    </div>
+            </div>
+        </div>
+<script>
+        function getResult() {
+            var xml=document.getElementById("p");
+            var designValue= xml.value;
+            //var listdata = null;
+            
+            jQuery.extend({
+                getValues: function(url) {
+                    var listdata = null;
+                    $.ajax({
+                        type:'GET',
+                        url:'trevor_fetch.cgi',
+                        async: false,
+                        data:"p="+designValue,
+                        success:function(data) {
+                            //console.log(data);
+                            listdata = data;
+                            alert("success");
+                        }
+                    });
+                    return listdata;
+                }
+            });
+            var arr = [];
+            var results = $.getValues("url string");
+
+            var parts = results.split("<itemlist>");
+            for(i=1; i<=2 ; i++){
+                var thePart = parts[i].split("</itemlist>")[0];
+                arr.push(thePart);
+            }
+            var outfit = arr[0];
+            var pet = arr[1];
+
+            console.log(outfit);
+            console.log(pet);
+
+            var sourceOfPicture = "images/Trevor/" +outfit+ ".png";
+            var img = document.getElementById('bigpic');
+            img.src = sourceOfPicture.replace('408x590', '408x590');
+            img.style.display = "block";
+
+            var sourceOfPicture1 = "images/Pets/" +pet+ ".png";
+            var img1 = document.getElementById('petPic');
+            img1.src = sourceOfPicture1.replace('200x200', '200x200');
+            img1.style.display = "block";
+        }
+            
+    </script>
+
+</body>
+</html>
