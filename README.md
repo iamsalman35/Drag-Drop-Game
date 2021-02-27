@@ -1,4 +1,4 @@
-# Drag-Drop-Game
+# Drag&Drop-Game
 A simple 'Drag&Drop' game to showcase the drag and drop functionalities in HTML5. The client-side was implemented using HTML, CSS and Javascript. The server-side was implemented using Javascript and Perl.
 
 Project Demo : https://drive.google.com/file/d/1X1fdkMzpmoo_K54KVp0n4F4mKYbxFdxT/view?usp=sharing
